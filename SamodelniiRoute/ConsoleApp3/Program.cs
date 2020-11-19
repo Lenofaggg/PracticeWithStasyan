@@ -32,7 +32,7 @@ namespace ConsoleApp3
     {
         public Point points;
         public string Name;
-        public City(Point point, string Name)
+        public City(string Name, Point point)
         {
             this.points = point;
             this.Name = Name;
@@ -58,8 +58,10 @@ namespace ConsoleApp3
                 string line;
                 while ((line = file.ReadLine()) != null)
                 {
-                    string[] informs = line.Split(new char[] { ' ' });
-                    routes.Add(new Route(ReadCities(informs)));//ну карооооче, вот ты линию считал и отправил вот этот массив полей 
+                   
+                    string[] informs = line.Split(new char[] { ' ' });//массив городов
+                    routes.Add(new Route(ReadCities(informs)));
+                   
                 }
             }
             return routes;
@@ -69,10 +71,17 @@ namespace ConsoleApp3
         {
             List<City> cities = new List<City>();
 
+            for(int i = 0; i<=informs.Length;i++)
+            {
+                string[] informsCity = informs[i].Split(new char[] { '/' });//массив полей города
+                cities.Add(new City(ReadCity(informsCity[0],Point)));
+            }
+            
+
             return cities;
         }
 
-        static City ReadCity()
+        static City ReadCity(string[] informsCity)
         {
             City city = new City();
             return city;
