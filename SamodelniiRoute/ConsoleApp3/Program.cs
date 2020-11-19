@@ -74,7 +74,7 @@ namespace ConsoleApp3
             for(int i = 0; i<=informs.Length;i++)
             {
                 string[] informsCity = informs[i].Split(new char[] { '/' });//массив полей города
-                cities.Add(new City(ReadCity(informsCity[0],Point)));
+                cities.Add((ReadCity(informsCity)));//добавление города в список городов
             }
             
 
