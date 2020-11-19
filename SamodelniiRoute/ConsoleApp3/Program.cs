@@ -79,15 +79,16 @@ namespace ConsoleApp3
             return cities;
         }
 
-        static City ReadCity(string[] informsCity)
+        static City ReadCity(string[] informsCity)//тут в теории массив из названия/х координаты/у координаты
         {
-            City city = new City();
+            City city = new City(informsCity[0],ReadPoint(informsCity[1], informsCity[1]));
+            
             return city;
         }
 
-        static Point ReadPoint()
+        static Point ReadPoint(string x, string y)
         {
-            Point point = new Point();
+            Point point = new Point(Convert.ToInt32(x), (Convert.ToInt32(y));
             return point;
         }
     }
