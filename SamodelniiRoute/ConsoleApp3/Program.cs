@@ -52,17 +52,20 @@ namespace ConsoleApp3
             List<Route> routes = new List<Route>();
             using (System.IO.StreamReader file = new System.IO.StreamReader(Console.ReadLine()))
             {
+                //string str = sr_samp.ReadLine();
+                //string[] informs = str.Split(new char[] { ' ' });
+
                 string line;
                 while ((line = file.ReadLine()) != null)
                 {
-                    string count = line.Split(',')[0];
-                    routes.Add(new Route(ReadCities(line)));
+                    string[] informs = line.Split(new char[] { ' ' });
+                    routes.Add(new Route(ReadCities(informs)));//ну карооооче, вот ты линию считал и отправил вот этот массив полей 
                 }
             }
             return routes;
         }
 
-        static List<City> ReadCities(string line)
+        static List<City> ReadCities(string[] informs)
         {
             List<City> cities = new List<City>();
 
