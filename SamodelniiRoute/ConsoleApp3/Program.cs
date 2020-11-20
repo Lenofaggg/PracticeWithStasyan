@@ -99,8 +99,8 @@ namespace ConsoleApp3
         //cчитывание  маршрута пользователя(кол-во городов на одной строке и списка городов на другой)
         {
             int countc = 2;
-            List<Route> searchroute = new List<Route>(); 
-
+            List<Route> searchroute = new List<Route>();
+            Console.WriteLine("ВВедите два желаемых города через пробел. \n задание города - название/х/у ");
             string line = Console.ReadLine();
             string[] informs = line.Split(new char[] { ' ' });//массив городов
             searchroute.Add(new Route(countc, ReadCities(informs)));
