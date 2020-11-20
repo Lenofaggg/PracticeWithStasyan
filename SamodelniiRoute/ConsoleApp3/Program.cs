@@ -57,7 +57,6 @@ namespace ConsoleApp3
             using (System.IO.StreamReader file = new System.IO.StreamReader(Console.ReadLine()))
             {
                 string line;
-               
                 
                 while ((line = file.ReadLine()) != null)
                 {
@@ -86,7 +85,7 @@ namespace ConsoleApp3
         static City ReadCity(string[] informsCity)
         //тут в теории массив из названия/х координаты/у координаты
         {
-            City city = new City(informsCity[0],ReadPoint(informsCity[1], informsCity[1]));
+            City city = new City(informsCity[0],ReadPoint(informsCity[1], informsCity[2]));
             
             return city;
         }
