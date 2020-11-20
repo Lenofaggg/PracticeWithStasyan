@@ -57,10 +57,12 @@ namespace ConsoleApp3
             using (System.IO.StreamReader file = new System.IO.StreamReader(Console.ReadLine()))
             {
                 string line;
-                line = file.ReadLine();
-                countc = Convert.ToInt32(line);
+               
+                
                 while ((line = file.ReadLine()) != null)
                 {
+                    countc = Convert.ToInt32(line);
+                    line = file.ReadLine();
                     string[] informs = line.Split(new char[] { ' ' });//массив городов
                     routes.Add(new Route(countc,ReadCities(informs)));
                 }
