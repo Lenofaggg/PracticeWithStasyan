@@ -48,7 +48,7 @@ namespace ConsoleApp3
             SearchUserRoute();
         }
         static List<Route> ReadRoutes()
-        //cчитывание построчно маршрутов(списков городов на одной строчке)
+        //cчитывание построчно маршрутов(кол-во городов на одной строке и списка городов на другой)
         {
             int countc = 0;
 
@@ -86,7 +86,6 @@ namespace ConsoleApp3
         //тут в теории массив из названия/х координаты/у координаты
         {
             City city = new City(informsCity[0],ReadPoint(informsCity[1], informsCity[2]));
-            
             return city;
         }
 
