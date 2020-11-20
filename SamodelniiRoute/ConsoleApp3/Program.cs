@@ -43,8 +43,8 @@ namespace ConsoleApp3
     {
         static void Main(string[] args)
         {
-            ReadRoutes();
-            ReadUserRoute();
+            List<Route> cities = ReadRoutes();
+            List<Route> searchroute = ReadUserRoute();
             SearchUserRoute();
         }
         static List<Route> ReadRoutes()
@@ -94,6 +94,25 @@ namespace ConsoleApp3
             Point point = new Point(Convert.ToInt32(x), (Convert.ToInt32(y)));
             return point;
         }
+
+        static List<Route> ReadUserRoute()
+        //cчитывание построчно маршрутов(кол-во городов на одной строке и списка городов на другой)
+        {
+            int countc = 0;
+            List<Route> searchroute = new List<Route>();            
+            string line;
+
+            do
+            {
+                line = Console.ReadLine();
+                string[] informs = line.Split(new char[] { ' ' });//массив городов
+                searchroute.Add(new Route(countc, ReadCities(informs)));
+            }
+            while (searchroute.Count < 1);
+            
+            return searchroute;
+        }
+
     }
 
 }
