@@ -96,9 +96,9 @@ namespace ConsoleApp3
         }
 
         static List<Route> ReadUserRoute()
-        //cчитывание построчно маршрутов(кол-во городов на одной строке и списка городов на другой)
+        //cчитывание построчно маршрута пользователя(кол-во городов на одной строке и списка городов на другой)
         {
-            int countc = 0;
+            int countc = 2;
             List<Route> searchroute = new List<Route>();            
             string line;
 
@@ -112,6 +112,8 @@ namespace ConsoleApp3
             
             return searchroute;
         }
+
+
 
     }
 
