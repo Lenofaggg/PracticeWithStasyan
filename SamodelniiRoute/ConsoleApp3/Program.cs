@@ -10,10 +10,10 @@ namespace ConsoleApp3
     {
         public List<City> cities;
         public int countCities;
-        public Route(List<City> cities)
+        public Route(int countc, List<City> cities)
         {
             this.cities = cities;
-            this.countCities = cities.Count();
+            this.countCities = countc;
         }
     }
 
@@ -48,26 +48,28 @@ namespace ConsoleApp3
             SearchUserRoute();
         }
         static List<Route> ReadRoutes()
+        //cчитывание построчно маршрутов(списков городов на одной строчке)
         {
+            int countc = 0;
+
             List<Route> routes = new List<Route>();
+
             using (System.IO.StreamReader file = new System.IO.StreamReader(Console.ReadLine()))
             {
-                //string str = sr_samp.ReadLine();
-                //string[] informs = str.Split(new char[] { ' ' });
-
                 string line;
+                line = file.ReadLine();
+                countc = Convert.ToInt32(line);
                 while ((line = file.ReadLine()) != null)
                 {
-                   
                     string[] informs = line.Split(new char[] { ' ' });//массив городов
-                    routes.Add(new Route(ReadCities(informs)));
-                   
+                    routes.Add(new Route(countc,ReadCities(informs)));
                 }
             }
             return routes;
         }
 
         static List<City> ReadCities(string[] informs)
+        //считать города - informs[] это город
         {
             List<City> cities = new List<City>();
 
@@ -78,8 +80,9 @@ namespace ConsoleApp3
             }
             return cities;
         }
-
-        static City ReadCity(string[] informsCity)//тут в теории массив из названия/х координаты/у координаты
+        
+        static City ReadCity(string[] informsCity)
+        //тут в теории массив из названия/х координаты/у координаты
         {
             City city = new City(informsCity[0],ReadPoint(informsCity[1], informsCity[1]));
             
@@ -88,7 +91,7 @@ namespace ConsoleApp3
 
         static Point ReadPoint(string x, string y)
         {
-            Point point = new Point(Convert.ToInt32(x), (Convert.ToInt32(y));
+            Point point = new Point(Convert.ToInt32(x), (Convert.ToInt32(y)));
             return point;
         }
     }
