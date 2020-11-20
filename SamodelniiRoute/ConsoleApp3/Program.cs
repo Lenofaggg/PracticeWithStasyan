@@ -96,19 +96,14 @@ namespace ConsoleApp3
         }
 
         static List<Route> ReadUserRoute()
-        //cчитывание построчно маршрута пользователя(кол-во городов на одной строке и списка городов на другой)
+        //cчитывание  маршрута пользователя(кол-во городов на одной строке и списка городов на другой)
         {
             int countc = 2;
-            List<Route> searchroute = new List<Route>();            
-            string line;
+            List<Route> searchroute = new List<Route>(); 
 
-            do
-            {
-                line = Console.ReadLine();
-                string[] informs = line.Split(new char[] { ' ' });//массив городов
-                searchroute.Add(new Route(countc, ReadCities(informs)));
-            }
-            while (searchroute.Count < 1);
+            string line = Console.ReadLine();
+            string[] informs = line.Split(new char[] { ' ' });//массив городов
+            searchroute.Add(new Route(countc, ReadCities(informs)));
             
             return searchroute;
         }
